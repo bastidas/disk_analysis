@@ -1,0 +1,6 @@
+web: bokeh serve --port=$PORT --host=arcane-fortress-84192.herokuapp.com --host=* --address=0.0.0.0 --use-xheaders main.py
+#--host=* is a security problem and should not be needed
+#--port: specifies the port that the bokeh server will listen on, $PORT is set by heroku
+#--host=myapp.herokuapp.com and --host=*: specify the host name as myapp.heroku..., the wildcard is supposed to allow all hosts to be accepted. I'm not sure this in needed anymore.
+#--address=0.0.0.0: I think this tells bokeh to figure out on its own, which IP address it will be on.
+#--use-xheaders: causes bokeh to override the remote IP and URI scheme/protocol
