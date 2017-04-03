@@ -1,0 +1,24 @@
+
+
+
+#old heroku stocks demo 
+/home/alex/data_projects/stock-price-67169
+>heroku open
+https://stock-price-67169.herokuapp.com/
+
+
+#cmds for new flask demo
+
+>heroku create stock-demo-abf
+>git push heroku master
+# see that it works
+>heroku open 
+# see logs
+>heroku logs --tail
+# add buildpack
+>heroku config:add BUILDPACK_URL=https://github.com/kennethreitz/conda-buildpack.git
+or is this the way?
+>heroku buildpacks:add https://github.com/kennethreitz/conda-buildpack.git
+
+
+

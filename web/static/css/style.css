@@ -1,0 +1,25 @@
+.container {
+margin-top:15px;
+margin-bottom:15px;
+padding-bottom:5px;
+border-style: solid;
+border-width: 2px;
+border-radius: 40px;
+width: 900px;
+/*height: 1000px;*/
+font-family: "Futura", 'questrial', "Century Gothic", "Century New Gothic", Litera, "Geometric 706 Std Complete", "Twentieth Century 1", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; /*geometric fonts, fall back to best helvetica, then sans-serif */
+text-decoration: none;
+color: black;
+font-weight: 300;
+font-size: 12pt;
+
+}
+
+.input-group {
+        /*width:50%;*/
+        width:310px;
+        float:none;
+        margin:0 auto;
+}
+
+
