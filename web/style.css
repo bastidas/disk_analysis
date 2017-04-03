@@ -1,0 +1,164 @@
+body {
+	font-family: arial, 'Ubuntu', sans-serif;
+	font-size: 130%;
+	font-style: normal;
+	font-variant: normal;
+	padding-top: 0px;
+	padding-bottom: 20px;
+	color:#C1C1C1;
+	background-color: #000000 !important;
+}
+
+
+.container {
+  background: #000000 !important;
+  /*color: #E2E2E2;  */
+  border: 2px none #FFFFFF;
+  width:960px;   /* 840 */
+  padding-left:25px;
+  margin-top:0px;
+}
+
+
+.git{
+  background: #000000 !important;
+  color: #FFFFFF;  
+  border: 2px solid #FFFFFF;
+  width:200px;   /* 840 */
+  font-size:1.0em;
+  position:fixed;
+  font-color:#FFFFFF;
+}
+
+a {
+	border: none;
+	color: #778899; /* #0051BB; */
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FFFFFF; /*dark blue */
+	text-decoration: none;
+}
+
+
+cite {
+	font-style: normal;
+}
+
+cite a {
+	color: #778899; /* #0051BB; */
+	font-style: normal;
+}
+
+code {
+	font-family: "Courier New";
+	background: #778899; /* #778899   ; */
+	/* border: 1px solid #dfdfdf; */
+	display: block;
+	word-spacing: -0.05em;
+	font-size: 0.9em;
+	line-height: 1.0em;
+	padding: 5px;
+}
+
+
+p {
+    font-size: 1.2;
+	line-height: 30px;
+	margin: 0.2em auto;
+	text-align: left;
+}
+
+
+
+
+h1 {  
+    font-family:'Share Tech', sans-serif;
+	color: #FFFFFF;  
+	font-size: 5.0em;
+	letter-spacing: 4px;  
+	line-height: 1.2em;  
+	font-weight: normal;  
+	/* shadow */
+	text-align: left;
+  	font-size: 50px;
+  	line-height: 140%;
+  	text-shadow: 3px 3px 7px #919191;
+ } 
+
+h2 {
+	font-family: 'Share Tech', sans-serif;
+	color: #FFFFFF;   
+	font-size: 1.8em;  
+	line-height: 1.2em;  
+	letter-spacing: 3px;  
+	font-weight: normal;
+	/* shadow */
+	text-align: left;
+  	line-height: 140%;
+  	text-shadow: 3px 3px 7px #919191;
+ }
+
+h3 {
+	font-family: 'VT323', monospace;
+	color: #FFFFFF;   
+	font-size: 1.8em;  
+	line-height: 1.2em;  
+	letter-spacing: 3px;  
+	font-weight: normal;
+	/* shadow */
+	text-align: left;
+  	line-height: 140%;
+  	text-shadow: 3px 3px 7px #919191;
+ }
+
+
+#zcarousel_div{ /* CSS for specific carousel container called #zcarousel_div. */
+width:100%;
+height:500px;
+}
+/* ######### Shared CSS for various parts of carousel (in the event of multiple carousels) ######### */
+div.bgcarousel{ /* shared CSS for main carousel container */
+background: black url(images/loading.gif) center center no-repeat; /* loading gif while caoursel is loading */
+}
+
+div.bgcarousel img.navbutton{ /* CSS for the nav buttons */
+}
+
+div.bgcarousel div.slide{ /* CSS for each image's DIV container within main container */
+background-color: black;
+background-position: center center; /* center image within carousel */
+background-repeat: no-repeat;
+background-size: cover; /* CSS3 property to scale image within container? "cover" or "contain" */
+color: black;
+}
+
+div.bgcarousel div.selectedslide{ /* CSS for currently selected slide */
+}
+
+div.bgcarousel div.slide div.desc{ /* DIV that contains the textual description inside .slide */
+position: absolute;
+color: white;
+left: 40px;
+top: 40px;
+width:210px;
+background-color:rgba(0, 0, 0, 0.5);
+padding: 10px;
+/*font: 16px 'IM Fell DW Pica', "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+/*text-shadow: 0 -1px 1px #8a8a8a; */ /* CSS3 text shadow */ 
+z-index:5;
+}
+
+div.bgcarousel div.selectedslide div.desc{ /* CSS for currently selected slide's desc div */
+}
+
+div.bgcarousel div.slide div.desc h2{
+font-size:20pt;
+margin:0;
+}
+
+div.bgcarousel div.slide div.desc a{
+color:#708090;
+text-decoration:none;
+}

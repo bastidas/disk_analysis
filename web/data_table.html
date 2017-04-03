@@ -1,0 +1,938 @@
+
+<h2>The Data</h2>
+<p>
+The data is X GB of daily hard drive stats from 2014 to the end of the 4th quarter in 2016. One of the key aspects of the data is that it contains the SMART (Self-Monitoring, Analysis and Reporting Technology) data for each drive on each day. 
+</p>
+
+
+
+<style type="text/css">
+.smart_table  {border-collapse:collapse;border-spacing:0;border-style:solid; border-width:2px;}
+.smart_table  td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:2px;overflow:hidden;word-break:normal;}
+.smart_table  th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:2px;overflow:hidden;word-break:normal;}
+.smart_table {vertical-align:top}
+</style>
+
+
+
+<table class="smart_table">
+<tr>
+<th>ID</th>
+<th>Attribute name</th>
+<th>Ideal</th>
+<th>Importance</th>
+<th>Critical</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>01<br />
+0x01</td>
+<td><b>Read Error Rate</b></td>
+<td> importance_01 </td>
+<td>low</td>
+<td></td>
+<td>(Vendor specific raw value.) Stores data related to the rate of hardware read errors that occurred when reading data from a disk surface. The raw value has different structure for different vendors and is often not meaningful as a decimal number.</td>
+</tr>
+<tr>
+<td>02</td>
+<td><b>Throughput Performance</b></td>
+<td> importance_02 </td>
+<td>high</td>
+<td></td>
+<td>Overall (general) throughput performance of a hard disk drive. If the value of this attribute is decreasing there is a high probability that there is a problem with the disk.</td>
+</tr>
+<tr>
+<td>03<br />
+0x03</td>
+<td><b>Spin-Up Time</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Average time of spindle spin up (from zero RPM to fully operational [milliseconds]).</td>
+</tr>
+<tr>
+<td>04<br />
+0x04</td>
+<td><b>Start/Stop Count</b></td>
+<td></td>
+<td></td>
+<td>A tally of spindle start/stop cycles. The spindle turns on, and hence the count is increased, both when the hard disk is turned on after having before been turned entirely off (disconnected from power source) and when the hard disk returns from having previously been put to sleep mode.<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">[21]</a></sup></td>
+</tr>
+<tr style="background:#FED;">
+<td>05<br />
+0x05</td>
+<td><b>Reallocated Sectors Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:1_22-0" class="reference"><a href="#cite_note-:1-22">[22]</a></sup><sup id="cite_ref-23" class="reference"><a href="#cite_note-23">[23]</a></sup><sup id="cite_ref-24" class="reference"><a href="#cite_note-24">[24]</a></sup></div>
+</td>
+<td>Count of reallocated sectors. The raw value represents a count of the&#160;<a href="/wiki/Bad_sector" title="Bad sector">bad sectors</a>&#160;that have been found and remapped.<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">[25]</a></sup> Thus, the higher the attribute value, the more sectors the drive has had to reallocate. This value is primarily used as a metric of the life expectancy of the drive; a drive which has had any reallocations at all is significantly more likely to fail in the immediate months.<sup id="cite_ref-:1_22-1" class="reference"><a href="#cite_note-:1-22">[22]</a></sup><sup id="cite_ref-26" class="reference"><a href="#cite_note-26">[26]</a></sup></td>
+</tr>
+<tr>
+<td>06<br />
+0x06</td>
+<td><b>Read Channel Margin</b></td>
+<td></td>
+<td></td>
+<td>Margin of a channel while reading data. The function of this attribute is not specified.</td>
+</tr>
+<tr>
+<td>07<br />
+0x07</td>
+<td><b>Seek Error Rate</b></td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; font-size: smaller; text-align: center;" class="table-na">Varies</td>
+<td></td>
+<td>(Vendor specific raw value.) Rate of seek errors of the magnetic heads. If there is a partial failure in the mechanical positioning system, then seek errors will arise. Such a failure may be due to numerous factors, such as damage to a servo, or thermal widening of the hard disk. The raw value has different structure for different vendors and is often not meaningful as a decimal number.</td>
+</tr>
+<tr>
+<td>08<br />
+0x08</td>
+<td><b>Seek Time Performance</b></td>
+<td>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Up.svg" class="image"><img alt="Higher" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/18px-Dark_Green_Arrow_Up.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/27px-Dark_Green_Arrow_Up.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/36px-Dark_Green_Arrow_Up.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">High</div>
+</td>
+<td></td>
+<td>Average performance of seek operations of the magnetic heads. If this attribute is decreasing, it is a sign of problems in the mechanical subsystem.</td>
+</tr>
+<tr>
+<td>09<br />
+0x09</td>
+<td style="white-space: nowrap;"><b><a href="/wiki/Power-On_Hours" class="mw-redirect" title="Power-On Hours">Power-On Hours</a></b></td>
+<td></td>
+<td></td>
+<td>Count of hours in power-on state. The raw value of this attribute shows total count of hours (or minutes, or seconds, depending on manufacturer) in power-on state.<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">[27]</a></sup>
+<p>"By default, the total expected lifetime of a hard disk in perfect condition is defined as 5 years (running every day and night on all days). This is equal to 1825 days in 24/7 mode or 43800 hours."<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">[28]</a></sup></p>
+<p>On some pre-2005 drives, this raw value may advance erratically and/or "wrap around" (reset to zero periodically).<sup id="cite_ref-29" class="reference"><a href="#cite_note-29">[29]</a></sup></p>
+</td>
+</tr>
+<tr style="background:#FED;">
+<td>10<br />
+0x0A</td>
+<td><b>Spin Retry Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-30" class="reference"><a href="#cite_note-30">[30]</a></sup></div>
+</td>
+<td>Count of retry of spin start attempts. This attribute stores a total count of the spin start attempts to reach the fully operational speed (under the condition that the first attempt was unsuccessful). An increase of this attribute value is a sign of problems in the hard disk mechanical subsystem.</td>
+</tr>
+<tr>
+<td>11<br />
+0x0B</td>
+<td><b>Recalibration Retries</b> or <b>Calibration Retry Count</b></td>
+<td>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+</td>
+<td></td>
+<td>This attribute indicates the count that recalibration was requested (under the condition that the first attempt was unsuccessful). An increase of this attribute value is a sign of problems in the hard disk mechanical subsystem.</td>
+</tr>
+<tr>
+<td>12<br />
+0x0C</td>
+<td><b>Power Cycle Count</b></td>
+<td></td>
+<td></td>
+<td>This attribute indicates the count of full hard disk power on/off cycles.</td>
+</tr>
+<tr>
+<td>13<br />
+0x0D</td>
+<td style="white-space: nowrap;"><b>Soft Read Error Rate</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Uncorrected read errors reported to the operating system.</td>
+</tr>
+<tr>
+<td>22<br />
+0x16</td>
+<td><b>Current Helium Level</b></td>
+<td></td>
+<td></td>
+<td>Specific to He8 drives from HGST. This value measures the helium inside of the drive specific to this manufacturer. It is a pre-fail attribute that trips once the drive detects that the internal environment is out of specification.<sup id="cite_ref-31" class="reference"><a href="#cite_note-31">[31]</a></sup></td>
+</tr>
+<tr>
+<td>170<br />
+0xAA</td>
+<td><b>Available Reserved Space</b></td>
+<td></td>
+<td></td>
+<td>See attribute E8.<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">[32]</a></sup></td>
+</tr>
+<tr>
+<td>171<br />
+0xAB</td>
+<td><b>SSD Program Fail Count</b></td>
+<td></td>
+<td></td>
+<td>(Kingston) The total number of flash program operation failures since the drive was deployed.<sup id="cite_ref-acronis_33-0" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup> Identical to attribute 181.</td>
+</tr>
+<tr>
+<td>172<br />
+0xAC</td>
+<td><b>SSD Erase Fail Count</b></td>
+<td></td>
+<td></td>
+<td>(Kingston) Counts the number of flash erase failures. This attribute returns the total number of Flash erase operation failures since the drive was deployed. This attribute is identical to attribute 182.</td>
+</tr>
+<tr>
+<td>173<br />
+0xAD</td>
+<td><b>SSD Wear Leveling Count</b></td>
+<td></td>
+<td></td>
+<td>Counts the maximum worst erase count on any block.</td>
+</tr>
+<tr>
+<td>174<br />
+0xAE</td>
+<td><b>Unexpected power loss count</b></td>
+<td></td>
+<td></td>
+<td>Also known as "Power-off Retract Count" per conventional HDD terminology. Raw value reports the number of unclean shutdowns, cumulative over the life of an SSD, where an "unclean shutdown" is the removal of power without STANDBY IMMEDIATE as the last command (regardless of PLI activity using capacitor power). Normalized value is always 100.<sup id="cite_ref-Intel_34-0" class="reference"><a href="#cite_note-Intel-34">[34]</a></sup></td>
+</tr>
+<tr>
+<td>175<br />
+0xAF</td>
+<td><b>Power Loss Protection Failure</b></td>
+<td></td>
+<td></td>
+<td>Last test result as microseconds to discharge cap, saturated at its maximum value. Also logs minutes since last test and lifetime number of tests. Raw value contains the following data:
+<ul>
+<li>Bytes 0-1: Last test result as microseconds to discharge cap, saturates at max value. Test result expected in range 25 &lt;= result &lt;= 5000000, lower indicates specific error code.</li>
+<li>Bytes 2-3: Minutes since last test, saturates at max value.</li>
+<li>Bytes 4-5: Lifetime number of tests, not incremented on power cycle, saturates at max value.</li>
+</ul>
+<p>Normalized value is set to one on test failure or 11 if the capacitor has been tested in an excessive temperature condition, otherwise 100.<sup id="cite_ref-Intel_34-1" class="reference"><a href="#cite_note-Intel-34">[34]</a></sup></p>
+</td>
+</tr>
+<tr>
+<td>176<br />
+0xB0</td>
+<td style="white-space: nowrap;"><b>Erase Fail Count</b></td>
+<td></td>
+<td></td>
+<td>S.M.A.R.T. parameter indicates a number of flash erase command failures.<sup id="cite_ref-35" class="reference"><a href="#cite_note-35">[35]</a></sup></td>
+</tr>
+<tr>
+<td>177<br />
+0xB1</td>
+<td><b>Wear Range Delta</b></td>
+<td></td>
+<td></td>
+<td>Delta between most-worn and least-worn Flash blocks. It describes how good/bad the wearleveling of the SSD works on a more technical way.</td>
+</tr>
+<tr>
+<td>179<br />
+0xB3</td>
+<td><b>Used Reserved Block Count Total</b></td>
+<td></td>
+<td></td>
+<td>"Pre-Fail" attribute used at least in Samsung devices.</td>
+</tr>
+<tr>
+<td>180<br />
+0xB4</td>
+<td><b>Unused Reserved Block Count Total</b></td>
+<td></td>
+<td></td>
+<td>"Pre-Fail" attribute used at least in HP devices.</td>
+</tr>
+<tr>
+<td>181<br />
+0xB5</td>
+<td><b>Program Fail Count Total</b> or <b>Non-4K Aligned Access Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Total number of Flash program operation failures since the drive was deployed.<sup id="cite_ref-36" class="reference"><a href="#cite_note-36">[36]</a></sup><br />
+Number of user data accesses (both reads and writes) where LBAs are not 4 KiB aligned (LBA&#160;% 8&#160;!= 0) or where size is not modulus 4 KiB (block count&#160;!= 8), assuming logical block size (LBS) = 512 B.<sup id="cite_ref-37" class="reference"><a href="#cite_note-37">[37]</a></sup></td>
+</tr>
+<tr>
+<td>182<br />
+0xB6</td>
+<td><b>Erase Fail Count</b></td>
+<td></td>
+<td></td>
+<td>"Pre-Fail" Attribute used at least in Samsung devices.</td>
+</tr>
+<tr>
+<td>183<br />
+0xB7</td>
+<td><b>SATA Downshift Error Count</b> or <b>Runtime Bad Block</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Western Digital, Samsung or Seagate attribute: Either the number of downshifts of link speed (e.g. from 6Gbps to 3Gbps) or the total number of data blocks with detected, uncorrectable errors encountered during normal operation.<sup id="cite_ref-38" class="reference"><a href="#cite_note-38">[38]</a></sup>&#160;Although degradation of this parameter can be an indicator of drive aging and/or potential electromechanical problems, it does not directly indicate imminent drive failure.<sup id="cite_ref-39" class="reference"><a href="#cite_note-39">[39]</a></sup></td>
+</tr>
+<tr style="background:#FED;">
+<td>184<br />
+0xB8</td>
+<td><b>End-to-End error / IOEDC</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:2_40-0" class="reference"><a href="#cite_note-:2-40">[40]</a></sup></div>
+</td>
+<td>This attribute is a part of <a href="/wiki/Hewlett-Packard" title="Hewlett-Packard">Hewlett-Packard</a>'s SMART IV technology, as well as part of other vendors' IO Error Detection and Correction schemas, and it contains a count of parity errors which occur in the data path to the media via the drive's cache RAM.<sup id="cite_ref-HPSMARTIV_41-0" class="reference"><a href="#cite_note-HPSMARTIV-41">[41]</a></sup></td>
+</tr>
+<tr>
+<td>185<br />
+0xB9</td>
+<td><b>Head Stability</b></td>
+<td></td>
+<td></td>
+<td>Western Digital attribute.</td>
+</tr>
+<tr>
+<td>186<br />
+0xBA</td>
+<td><b>Induced Op-Vibration Detection</b></td>
+<td></td>
+<td></td>
+<td>Western Digital attribute.</td>
+</tr>
+<tr style="background:#FED;">
+<td>187<br />
+0xBB</td>
+<td><b>Reported Uncorrectable Errors</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:3_42-0" class="reference"><a href="#cite_note-:3-42">[42]</a></sup></div>
+</td>
+<td>The count of errors that could not be recovered using hardware ECC (see attribute 195).<sup id="cite_ref-:3_42-1" class="reference"><a href="#cite_note-:3-42">[42]</a></sup></td>
+</tr>
+<tr style="background:#FED;">
+<td>188<br />
+0xBC</td>
+<td><b>Command Timeout</b></td>
+<td>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:4_43-0" class="reference"><a href="#cite_note-:4-43">[43]</a></sup></div>
+</td>
+<td>The count of aborted operations due to HDD timeout. Normally this attribute value should be equal to zero.<sup id="cite_ref-:4_43-1" class="reference"><a href="#cite_note-:4-43">[43]</a></sup></td>
+</tr>
+<tr>
+<td>189<br />
+0xBD</td>
+<td><b>High Fly Writes</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>HDD manufacturers implement a <a href="/wiki/Flying_height" title="Flying height">flying height</a> sensor that attempts to provide additional protections for write operations by detecting when a recording head is flying outside its normal operating range. If an unsafe fly height condition is encountered, the write process is stopped, and the information is rewritten or reallocated to a safe region of the hard drive. This attribute indicates the count of these errors detected over the lifetime of the drive.
+<p>This feature is implemented in most modern Seagate drives<sup id="cite_ref-seagate1_2-1" class="reference"><a href="#cite_note-seagate1-2">[2]</a></sup> and some of Western Digital's drives, beginning with the WD Enterprise WDE18300 and WDE9180 Ultra2 SCSI hard drives, and will be included on all future WD Enterprise products.<sup id="cite_ref-44" class="reference"><a href="#cite_note-44">[44]</a></sup></p>
+</td>
+</tr>
+<tr>
+<td>190<br />
+0xBE</td>
+<td><b>Temperature Difference</b> or <b>Airflow Temperature</b></td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; font-size: smaller; text-align: center;" class="table-na">Varies</td>
+<td></td>
+<td>Value is equal to (100-temp. °C), allowing manufacturer to set a minimum threshold which corresponds to a maximum temperature. This also follows the convention of 100 being a best-case value and lower values being undesirable. However, some older drives may instead report raw Temperature (identical to 0xC2) or Temperature minus 50 here.</td>
+</tr>
+<tr>
+<td>191<br />
+0xBF</td>
+<td style="white-space: nowrap;"><b>G-sense Error Rate</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The count of errors resulting from externally induced shock and vibration.</td>
+</tr>
+<tr>
+<td>192<br />
+0xC0</td>
+<td><b>Power-off Retract Count</b>, <b>Emergency Retract Cycle Count</b> (Fujitsu),<sup id="cite_ref-Fujitsu_MHT20xxAT_45-0" class="reference"><a href="#cite_note-Fujitsu_MHT20xxAT-45">[45]</a></sup> or <b>Unsafe Shutdown Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Number of power-off or emergency retract cycles.<sup id="cite_ref-hatfield2005_17-3" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup><sup id="cite_ref-acroniskb_46-0" class="reference"><a href="#cite_note-acroniskb-46">[46]</a></sup></td>
+</tr>
+<tr>
+<td>193<br />
+0xC1</td>
+<td><b>Load Cycle Count</b> or <b>Load/Unload Cycle Count</b> (Fujitsu)</td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Count of load/unload cycles into head landing zone position.<sup id="cite_ref-Fujitsu_MHT20xxAT_45-1" class="reference"><a href="#cite_note-Fujitsu_MHT20xxAT-45">[45]</a></sup> Some drives use 225 (0xE1) for Load Cycle Count instead.
+<p>Western Digital rates their VelociRaptor drives for 600,000 load/unload cycles,<sup id="cite_ref-47" class="reference"><a href="#cite_note-47">[47]</a></sup> and WD Green drives for 300,000 cycles;<sup id="cite_ref-48" class="reference"><a href="#cite_note-48">[48]</a></sup> the latter ones are designed to unload heads often to conserve power. On the other hand, the WD3000GLFS (a desktop drive) is specified for only 50,000 load/unload cycles.<sup id="cite_ref-49" class="reference"><a href="#cite_note-49">[49]</a></sup></p>
+<p>Some laptop drives and "green power" desktop drives are programmed to unload the heads whenever there has not been any activity for a short period, to save power.<sup id="cite_ref-50" class="reference"><a href="#cite_note-50">[50]</a></sup><sup id="cite_ref-51" class="reference"><a href="#cite_note-51">[51]</a></sup> Operating systems often access the file system a few times a minute in the background,<sup id="cite_ref-52" class="reference"><a href="#cite_note-52">[52]</a></sup> causing 100 or more load cycles per hour if the heads unload: the load cycle rating may be exceeded in less than a year.<sup id="cite_ref-53" class="reference"><a href="#cite_note-53">[53]</a></sup> There are programs for most operating systems that disable the <a href="/wiki/Advanced_Power_Management" title="Advanced Power Management">Advanced Power Management</a> (APM) and <a href="/wiki/Automatic_acoustic_management" title="Automatic acoustic management">Automatic acoustic management</a> (AAM) features causing frequent load cycles.<sup id="cite_ref-54" class="reference"><a href="#cite_note-54">[54]</a></sup><sup id="cite_ref-55" class="reference"><a href="#cite_note-55">[55]</a></sup></p>
+</td>
+</tr>
+<tr>
+<td>194<br />
+0xC2</td>
+<td><b>Temperature</b> or <b>Temperature Celsius</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Current internal temperature.</td>
+</tr>
+<tr>
+<td>195<br />
+0xC3</td>
+<td><b>Hardware ECC Recovered</b></td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; font-size: smaller; text-align: center;" class="table-na">Varies</td>
+<td></td>
+<td>(Vendor-specific raw value.) The raw value has different structure for different vendors and is often not meaningful as a decimal number.</td>
+</tr>
+<tr style="background:#FED;">
+<td>196<br />
+0xC4</td>
+<td><b>Reallocation Event Count</b><sup id="cite_ref-Fujitsu_MHT20xxAT_45-2" class="reference"><a href="#cite_note-Fujitsu_MHT20xxAT-45">[45]</a></sup></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:0_3-1" class="reference"><a href="#cite_note-:0-3">[3]</a></sup></div>
+</td>
+<td>Count of remap operations. The raw value of this attribute shows the total count of attempts to transfer data from reallocated sectors to a spare area. Both successful and unsuccessful attempts are counted.<sup id="cite_ref-56" class="reference"><a href="#cite_note-56">[56]</a></sup></td>
+</tr>
+<tr style="background:#FED;">
+<td>197<br />
+0xC5</td>
+<td><b>Current Pending Sector Count</b><sup id="cite_ref-Fujitsu_MHT20xxAT_45-3" class="reference"><a href="#cite_note-Fujitsu_MHT20xxAT-45">[45]</a></sup></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:0_3-2" class="reference"><a href="#cite_note-:0-3">[3]</a></sup><sup id="cite_ref-:2_40-1" class="reference"><a href="#cite_note-:2-40">[40]</a></sup><sup id="cite_ref-:4_43-2" class="reference"><a href="#cite_note-:4-43">[43]</a></sup></div>
+</td>
+<td>Count of "unstable" sectors (waiting to be remapped, because of unrecoverable read errors). If an unstable sector is subsequently read successfully, the sector is remapped and this value is decreased. Read errors on a sector will not remap the sector immediately (since the correct value cannot be read and so the value to remap is not known, and also it might become readable later); instead, the drive firmware remembers that the sector needs to be remapped, and will remap it the next time it's written.<sup id="cite_ref-57" class="reference"><a href="#cite_note-57">[57]</a></sup>
+<p>However, some drives will not immediately remap such sectors when written; instead the drive will first attempt to write to the problem sector and if the write operation is successful then the sector will be marked good (in this case, the "Reallocation Event Count" (0xC4) will not be increased). This is a serious shortcoming, for if such a drive contains marginal sectors that consistently fail only after some time has passed following a successful write operation, then the drive will never remap these problem sectors.</p>
+</td>
+</tr>
+<tr style="background:#FED;">
+<td>198<br />
+0xC6</td>
+<td><b>(Offline) Uncorrectable Sector Count</b><sup id="cite_ref-Fujitsu_MHT20xxAT_45-4" class="reference"><a href="#cite_note-Fujitsu_MHT20xxAT-45">[45]</a></sup></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:0_3-3" class="reference"><a href="#cite_note-:0-3">[3]</a></sup><sup id="cite_ref-:1_22-2" class="reference"><a href="#cite_note-:1-22">[22]</a></sup></div>
+</td>
+<td>The total count of uncorrectable errors when reading/writing a sector. A rise in the value of this attribute indicates defects of the disk surface and/or problems in the mechanical subsystem.<sup id="cite_ref-:0_3-4" class="reference"><a href="#cite_note-:0-3">[3]</a></sup><sup id="cite_ref-:4_43-3" class="reference"><a href="#cite_note-:4-43">[43]</a></sup><sup id="cite_ref-:2_40-2" class="reference"><a href="#cite_note-:2-40">[40]</a></sup></td>
+</tr>
+<tr>
+<td>199<br />
+0xC7</td>
+<td><b>UltraDMA CRC Error Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The count of errors in data transfer via the interface cable as determined by ICRC (Interface Cyclic Redundancy Check).</td>
+</tr>
+<tr>
+<td>200<br />
+0xC8</td>
+<td><b>Multi-Zone Error Rate</b> <sup id="cite_ref-hdat2_58-0" class="reference"><a href="#cite_note-hdat2-58">[58]</a></sup></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The count of errors found when writing a sector. The higher the value, the worse the disk's mechanical condition is.</td>
+</tr>
+<tr>
+<td>200<br />
+0xC8</td>
+<td><b>Write Error Rate</b> (Fujitsu)</td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The total count of errors when writing a sector.<sup id="cite_ref-smartlinux-attrs_59-0" class="reference"><a href="#cite_note-smartlinux-attrs-59">[59]</a></sup></td>
+</tr>
+<tr style="background:#FED;">
+<td>201<br />
+0xC9</td>
+<td><b>Soft Read Error Rate</b> or<br />
+<b>TA Counter Detected</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td><br />
+<div class="center">
+<div class="floatnone"><img alt="Critical" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/28px-Nuvola_apps_important.svg.png" width="28" height="23" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/42px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f7/Nuvola_apps_important.svg/56px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;"><sup id="cite_ref-:5_60-0" class="reference"><a href="#cite_note-:5-60">[60]</a></sup></div>
+</td>
+<td>Count indicates the number of uncorrectable software read errors.<sup id="cite_ref-:5_60-1" class="reference"><a href="#cite_note-:5-60">[60]</a></sup></td>
+</tr>
+<tr>
+<td>202<br />
+0xCA</td>
+<td><b>Data Address Mark errors</b> or<br />
+<b>TA Counter Increased</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Count of Data Address Mark errors (or vendor-specific).<sup id="cite_ref-hatfield2005_17-4" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup></td>
+</tr>
+<tr>
+<td>203<br />
+0xCB</td>
+<td><b>Run Out Cancel</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The number of errors caused by incorrect checksum during the error correction.</td>
+</tr>
+<tr>
+<td>204<br />
+0xCC</td>
+<td><b>Soft ECC Correction</b></td>
+<td>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+</td>
+<td></td>
+<td>Count of errors corrected by the internal error correction software. <sup id="cite_ref-hatfield2005_17-5" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup></td>
+</tr>
+<tr>
+<td>205<br />
+0xCD</td>
+<td><b>Thermal Asperity Rate</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td></td>
+<td>Count of errors due to high temperature.<sup id="cite_ref-hdsentinel_61-0" class="reference"><a href="#cite_note-hdsentinel-61">[61]</a></sup></td>
+</tr>
+<tr>
+<td>206<br />
+0xCE</td>
+<td><b>Flying Height</b></td>
+<td></td>
+<td></td>
+<td>Height of heads above the disk surface. If too low, head crash is more likely; if too high, read/write errors are more likely.<sup id="cite_ref-hatfield2005_17-6" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup><sup id="cite_ref-62" class="reference"><a href="#cite_note-62">[62]</a></sup></td>
+</tr>
+<tr>
+<td>207<br />
+0xCF</td>
+<td><b>Spin High Current</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td></td>
+<td>Amount of <a href="/wiki/Surge_current" class="mw-redirect" title="Surge current">surge current</a> used to spin up the drive.<sup id="cite_ref-hdsentinel_61-1" class="reference"><a href="#cite_note-hdsentinel-61">[61]</a></sup></td>
+</tr>
+<tr>
+<td>208<br />
+0xD0</td>
+<td><b>Spin Buzz</b></td>
+<td></td>
+<td></td>
+<td>Count of buzz routines needed to spin up the drive due to insufficient power.<sup id="cite_ref-hdsentinel_61-2" class="reference"><a href="#cite_note-hdsentinel-61">[61]</a></sup></td>
+</tr>
+<tr>
+<td>209<br />
+0xD1</td>
+<td><b>Offline Seek Performance</b></td>
+<td></td>
+<td></td>
+<td>Drive’s seek performance during its internal tests.<sup id="cite_ref-hdsentinel_61-3" class="reference"><a href="#cite_note-hdsentinel-61">[61]</a></sup></td>
+</tr>
+<tr>
+<td>210<br />
+0xD2</td>
+<td><b>Vibration During Write</b></td>
+<td></td>
+<td></td>
+<td>Found in Maxtor 6B200M0 200GB and Maxtor 2R015H1 15GB disks.</td>
+</tr>
+<tr>
+<td>211<br />
+0xD3</td>
+<td><b>Vibration During Write</b></td>
+<td></td>
+<td></td>
+<td>A recording of a vibration encountered during write operations.<sup id="cite_ref-63" class="reference"><a href="#cite_note-63">[63]</a></sup></td>
+</tr>
+<tr>
+<td>212<br />
+0xD4</td>
+<td><b>Shock During Write</b></td>
+<td></td>
+<td></td>
+<td>A recording of shock encountered during write operations.<sup id="cite_ref-acronis_33-1" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup><sup id="cite_ref-64" class="reference"><a href="#cite_note-64">[64]</a></sup></td>
+</tr>
+<tr>
+<td>220<br />
+0xDC</td>
+<td><b>Disk Shift</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Distance the disk has shifted relative to the spindle (usually due to shock or temperature). Unit of measure is unknown.<sup id="cite_ref-acronis_33-2" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup></td>
+</tr>
+<tr>
+<td>221<br />
+0xDD</td>
+<td><b>G-Sense Error Rate</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The count of errors resulting from externally induced shock and vibration.</td>
+</tr>
+<tr>
+<td>222<br />
+0xDE</td>
+<td><b>Loaded Hours</b></td>
+<td></td>
+<td></td>
+<td>Time spent operating under data load (movement of magnetic head armature).<sup id="cite_ref-acronis_33-3" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup></td>
+</tr>
+<tr>
+<td>223<br />
+0xDF</td>
+<td><b>Load/Unload Retry Count</b></td>
+<td></td>
+<td></td>
+<td>Count of times head changes position.<sup id="cite_ref-acronis_33-4" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup></td>
+</tr>
+<tr>
+<td>224<br />
+0xE0</td>
+<td><b>Load Friction</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><a href="/wiki/File:Dark_Green_Arrow_Down.svg" class="image" title="alt =Lower"><img alt="alt =Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></a></div>
+</div>
+</td>
+<td></td>
+<td>Resistance caused by friction in mechanical parts while operating.<sup id="cite_ref-acronis_33-5" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup></td>
+</tr>
+<tr>
+<td>225<br />
+0xE1</td>
+<td><b>Load/Unload Cycle Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Total count of load cycles<sup id="cite_ref-acronis_33-6" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup> Some drives use 193 (0xC1) for Load Cycle Count instead. See Description for 193 for significance of this number.</td>
+</tr>
+<tr>
+<td>226<br />
+0xE2</td>
+<td><b>Load 'In'-time</b></td>
+<td></td>
+<td></td>
+<td>Total time of loading on the magnetic heads actuator (time not spent in parking area).<sup id="cite_ref-acronis_33-7" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup></td>
+</tr>
+<tr>
+<td>227<br />
+0xE3</td>
+<td><b>Torque Amplification Count</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Count of attempts to compensate for platter speed variations.<sup id="cite_ref-65" class="reference"><a href="#cite_note-65">[65]</a></sup></td>
+</tr>
+<tr>
+<td>228<br />
+0xE4</td>
+<td><b>Power-Off Retract Cycle</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>The number of power-off cycles which are counted whenever there is a "retract event" and the heads are loaded off of the media such as when the machine is powered down, put to sleep, or is idle.<sup id="cite_ref-hatfield2005_17-7" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup><sup id="cite_ref-66" class="reference"><a href="#cite_note-66">[66]</a></sup></td>
+</tr>
+<tr>
+<td>230<br />
+0xE6</td>
+<td><b>GMR Head Amplitude</b> (magnetic HDDs), <b>Drive Life Protection Status</b> (SSDs)</td>
+<td></td>
+<td></td>
+<td>Amplitude of "thrashing" (repetitive head moving motions between operations).<sup id="cite_ref-hatfield2005_17-8" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup><sup id="cite_ref-67" class="reference"><a href="#cite_note-67">[67]</a></sup>
+<p>In solid-state drives, indicates whether usage trajectory is outpacing the expected life curve<sup id="cite_ref-kingston1_68-0" class="reference"><a href="#cite_note-kingston1-68">[68]</a></sup></p>
+</td>
+</tr>
+<tr>
+<td>231<br />
+0xE7</td>
+<td><b>Life Left</b> (SSDs) or <b>Temperature</b></td>
+<td></td>
+<td></td>
+<td>Indicates the approximate SSD life left, in terms of program/erase cycles or available reserved blocks.<sup id="cite_ref-kingston1_68-1" class="reference"><a href="#cite_note-kingston1-68">[68]</a></sup> A normalized value of 100 represents a new drive, with a threshold value at 10 indicating a need for replacement. A value of 0 may mean that the drive is operating in read-only mode to allow data recovery.<sup id="cite_ref-69" class="reference"><a href="#cite_note-69">[69]</a></sup>
+<p>Previously (pre-2010) occasionally used for Drive Temperature (more typically reported at 0xC2).</p>
+</td>
+</tr>
+<tr>
+<td>232<br />
+0xE8</td>
+<td><b>Endurance Remaining</b> or <b>Available Reserved Space</b></td>
+<td></td>
+<td></td>
+<td>Number of physical erase cycles completed on the SSD as a percentage of the maximum physical erase cycles the drive is designed to endure.
+<p>Intel SSDs report the available reserved space as a percentage of the initial reserved space.</p>
+</td>
+</tr>
+<tr>
+<td>233<br />
+0xE9</td>
+<td><b>Media Wearout Indicator</b> (SSDs) or <b>Power-On Hours</b></td>
+<td></td>
+<td></td>
+<td>Intel SSDs report a normalized value from 100, a new drive, to a minimum of 1. It decreases while the NAND erase cycles increase from 0 to the maximum-rated cycles.
+<p>Previously (pre-2010) occasionally used for Power-On Hours (more typically reported in 0x09).</p>
+</td>
+</tr>
+<tr>
+<td>234<br />
+0xEA</td>
+<td><b>Average erase count AND Maximum Erase Count</b></td>
+<td></td>
+<td></td>
+<td>Decoded as: byte 0-1-2 = average erase count (big endian) and byte 3-4-5 = max erase count (big endian).<sup id="cite_ref-70" class="reference"><a href="#cite_note-70">[70]</a></sup></td>
+</tr>
+<tr>
+<td>235<br />
+0xEB</td>
+<td><b>Good Block Count AND System(Free) Block Count</b></td>
+<td></td>
+<td></td>
+<td>Decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = system (free) block count.</td>
+</tr>
+<tr>
+<td>240<br />
+0xF0</td>
+<td><b>Head Flying Hours</b> or '<i><b>Transfer Error Rate'</b></i> (Fujitsu)</td>
+<td></td>
+<td></td>
+<td>Time spent during the positioning of the drive heads.<sup id="cite_ref-hatfield2005_17-9" class="reference"><a href="#cite_note-hatfield2005-17">[17]</a></sup><sup id="cite_ref-71" class="reference"><a href="#cite_note-71">[71]</a></sup>Some Fujitsu drives report the count of link resets during a data transfer.<sup id="cite_ref-72" class="reference"><a href="#cite_note-72">[72]</a></sup></td>
+</tr>
+<tr>
+<td>241<br />
+0xF1</td>
+<td><b>Total LBAs Written</b></td>
+<td></td>
+<td></td>
+<td>Total count of LBAs written.</td>
+</tr>
+<tr>
+<td>242<br />
+0xF2</td>
+<td><b>Total LBAs Read</b></td>
+<td></td>
+<td></td>
+<td>Total count of LBAs read.<br />
+Some S.M.A.R.T. utilities will report a negative number for the raw value since in reality it has 48 bits rather than 32.</td>
+</tr>
+<tr>
+<td>243<br />
+0xF3</td>
+<td><b>Total LBAs Written Expanded</b></td>
+<td></td>
+<td></td>
+<td>The upper 5 bytes of the 12-byte total number of LBAs written to the device. The lower 7 byte value is located at attribute 0xF1.<sup id="cite_ref-73" class="reference"><a href="#cite_note-73">[73]</a></sup></td>
+</tr>
+<tr>
+<td>244<br />
+0xF4</td>
+<td><b>Total LBAs Read Expanded</b></td>
+<td></td>
+<td></td>
+<td>The upper 5 bytes of the 12-byte total number of LBAs read from the device. The lower 7 byte value is located at attribute 0xF2.<sup id="cite_ref-74" class="reference"><a href="#cite_note-74">[74]</a></sup></td>
+</tr>
+<tr>
+<td>249<br />
+0xF9</td>
+<td><b>NAND Writes (1GiB)</b></td>
+<td></td>
+<td></td>
+<td>Total NAND Writes. Raw value reports the number of writes to NAND in 1&#160;GB increments.<sup id="cite_ref-75" class="reference"><a href="#cite_note-75">[75]</a></sup></td>
+</tr>
+<tr>
+<td>250<br />
+0xFA</td>
+<td><b>Read Error Retry Rate</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Count of errors while reading from a disk.<sup id="cite_ref-acronis_33-8" class="reference"><a href="#cite_note-acronis-33">[33]</a></sup></td>
+</tr>
+<tr>
+<td>251<br />
+0xFB</td>
+<td><b>Minimum Spares Remaining</b></td>
+<td></td>
+<td></td>
+<td>The Minimum Spares Remaining attribute indicates the number of remaining spare blocks as a percentage of the total number of spare blocks available.<sup id="cite_ref-google_code_hdd_guardian_76-0" class="reference"><a href="#cite_note-google_code_hdd_guardian-76">[76]</a></sup></td>
+</tr>
+<tr>
+<td>252<br />
+0xFC</td>
+<td><b>Newly Added Bad Flash Block</b></td>
+<td></td>
+<td></td>
+<td>The Newly Added Bad Flash Block attribute indicates the total number of bad flash blocks the drive detected since it was first initialized in manufacturing.<sup id="cite_ref-google_code_hdd_guardian_76-1" class="reference"><a href="#cite_note-google_code_hdd_guardian-76">[76]</a></sup></td>
+</tr>
+<tr>
+<td>254<br />
+0xFE</td>
+<td><b>Free Fall Protection</b></td>
+<td>
+<div class="center" style="width:auto; margin-left:auto; margin-right:auto;">Low</div>
+<div class="center">
+<div class="floatnone"><img alt="Lower" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/18px-Dark_Green_Arrow_Down.svg.png" width="18" height="18" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/27px-Dark_Green_Arrow_Down.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dark_Green_Arrow_Down.svg/36px-Dark_Green_Arrow_Down.svg.png 2x" data-file-width="700" data-file-height="700" /></div>
+</div>
+</td>
+<td></td>
+<td>Count of "Free Fall Events" detected.<sup id="cite_ref-77" class="reference"><a href="#cite_note-77">[77]</a></sup></td>
+</tr>
+</table>
