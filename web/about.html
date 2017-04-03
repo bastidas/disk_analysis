@@ -1,0 +1,90 @@
+<!doctype html>
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet">
+
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+	<title>Hard Drive Analysis </title>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css") }}">
+	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">-->
+
+
+</head>
+
+<body>
+<div class="git">
+Link to github
+</div>
+
+<div align="center">
+<div class="container">
+  <h1>HARD DISK FAILURE ANALYSIS</h1>
+    <h2>by Alexander Bastidas Fry</h2>
+
+
+<h2>Thesis</h2>
+<p>
+Although there are many observables correlated with hard disk failure, all predictive models of when a given hardrive will fail are not precise. 
+</p>
+
+<h2>Motivation</h2>
+<p>
+Component failure in large-scale IT installations is becoming an ever larger problem as the number of components in a single cluster approaches millions. Avoiding downtime and the cost of actual downtime make up more than 40% of the total cost of ownership for modern IT systems
+</p>
+
+<h2>Background</h2>
+<p>
+<a href=" https://research.google.com/pubs/pub32774.html">90% of all new information produced in the world is being stored on magnetic media, most of it on hard disk drives.</a>
+
+
+
+Large-scale installation field usage appears to differ widely from nominal datasheet Mean Time to Failure (MTTF) conditions. <a href="https://www.usenix.org/legacy/event/fast07/tech/schroeder/schroeder_html/">The field replacement rates of systems were significantly larger than we expected based on datasheet MTTFs.</a>
+
+
+
+    Predictable failures, result from slow processes such as mechanical wear and gradual degradation of storage surfaces. Monitoring can determine when such failures are becoming more likely.
+
+    Unpredictable failures, happening without warning and ranging from electronic components becoming defective to a sudden mechanical failure.
+
+The majority of failures are mechanical of some sort
+
+
+Failure analysis of computer hardware is also of interest in high perfomance computing and distibuted computing where <a href="http://www.pdl.cmu.edu/PDL-FTP/associated/dsn06.pdf">designing highly dependable systems requires a good understanding of failure characteristics. </a>. Many researchers have pointed out the importance of analyzing failure data and the need for a public failure data repository, one such reposity for HPCC is <a href="https://www.usenix.org/cfdr"> The Computer Failure Data Repository (CFDR)</a>, unfortnately it has not seen any contirbutions to its database since 2009.
+
+
+A significant body of work on analyzing hardware failures in server machines exists, but there is a dearth of information on consumer machines, even though they constitute the vast majority of machines sold and used each year. 
+
+
+
+
+ 
+
+
+</p>
+
+<h2>The Data</h2>
+<p>
+The data used in this analysis is 13 GB of csv files. It consits of daily hard drive stats from the begining of 2014 to the end of 2016. One of the key aspects of the data is that it contains the SMART (Self-Monitoring, Analysis and Reporting Technology) data for each drive on each day. 
+</p>
+
+<h2>BackBlaze</h2>
+<p>
+Is a low cost cloud backup storage service. They offer personal online backup storage as well as enterprise scale data storage solutions - all at prices generally lower than other services such as AWS or Dropbox. They manage to do this by offering a primarily backup service, that is, they enfore various soft and hard access quotas (though they do have more dynamic storage options). As primarily a backup service, their datacenter contains a complete copy of all customers’ data, plus multiple versions of files that change. They keep upfront costs low by using consumer-grade drives and other commodity components. They aren't shy about telling us <a href="https://www.backblaze.com/blog/petabytes-on-a-budget-how-to-build-cheap-cloud-storage">exaclty wow to build cheap cloud storage</a>
+</p>
+
+
+<h2>A Note about Manufacturers</h2>
+<p>
+The primary manufactures are Seagate and Western Digital. Western Digital owns HGST and HGST is Hitachi. HGST was formerly Hitachi. HGST was formed in 2003 from branches of IBM and Hitachi. In 2012 HGST was bought by Western Digital, from this time on Western Digital has maintained seperate market brands for their hard disks in some markets while consolidating in other markets.
+</p>
+
+
+<div align="right"><a href="https://github.com/bastidas/flask-demo">ABF</a></div>
+</div>
+</div>
+</body>
+</html>
