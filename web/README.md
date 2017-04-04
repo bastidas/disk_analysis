@@ -10,7 +10,14 @@ Here is the [finished website served from Heroku.](https://hard-drive.herokuapp.
 	1. Beging by creating an empty heroku app on heroku.com with some name
 	2. On your command line in this web directoy login to your heroku `heroku login
 	3. Set the origin `heroku git:remote -a your-heroku-app-name`
-	4.
+	4. 
+
+	```
+	git add .
+	git commit -am "make it better"
+	git push heroku master
+
+	```
 
 
 
