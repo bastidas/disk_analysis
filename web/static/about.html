@@ -9,16 +9,23 @@
 	<title>Hard Drive Analysis </title>
 
 
-    <link rel="stylesheet" type="text/css" href="style.css") }}">
+    <link rel="stylesheet" type="text/css" href="css/style.css") }}">
 	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">-->
 
 
 </head>
 
 <body>
-<div class="git">
-Link to github
+<div class="nav" align="center">
+<a href="{{ url_for('static', filename='index.html') }}">The Analysis</a> |
+ 
+<a href="about.html">About</a> | 
+
+<a href="data_table.html">The Data</a> 
 </div>
+
+
+
 
 <div align="center">
 <div class="container">
@@ -64,11 +71,6 @@ A significant body of work on analyzing hardware failures in server machines exi
  
 
 
-</p>
-
-<h2>The Data</h2>
-<p>
-The data used in this analysis is 13 GB of csv files. It consits of daily hard drive stats from the begining of 2014 to the end of 2016. One of the key aspects of the data is that it contains the SMART (Self-Monitoring, Analysis and Reporting Technology) data for each drive on each day. 
 </p>
 
 <h2>BackBlaze</h2>

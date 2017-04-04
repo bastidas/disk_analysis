@@ -10,43 +10,59 @@
 	<title>Hard Drive Analysis </title>
 
 
-    <link rel="stylesheet" type="text/css" href="style.css") }}">
-	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">-->
+    <!--<link rel="stylesheet" type="text/css" href="style.css") }}">-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
 
 
     <!--Background Image Carousel-->
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.velocity.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.touchSwipe.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bgcarousel.js') }}" type="text/javascript">
+        /***********************************************
+    * Background Image Carousel- (c) Dynamic Drive (www.dynamicdrive.com)
+    * Please keep this notice intact
+    * Visit http://www.dynamicdrive.com/ for this script and 100s more.
+    ***********************************************/
+    </script> 
+
+
+    <!--
     <script src="js/jquery.velocity.min.js"></script>
     <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
     <script src="js/bgcarousel.js" type="text/javascript">
+    
     /***********************************************
     * Background Image Carousel- (c) Dynamic Drive (www.dynamicdrive.com)
     * Please keep this notice intact
     * Visit http://www.dynamicdrive.com/ for this script and 100s more.
     ***********************************************/
-    </script>
+    </script> 
+    -->
+
+
 
     <script type="text/javascript">
-
     var zcarousel=new bgCarousel({
       wrapperid: 'zcarousel_div', //ID of blank DIV on page to house carousel
       imagearray: [
-    ['images/hd-crash-big.jpg', '<h2>a2</h2>Aftermath of a crashed drive. Partially disassembled. By flicker user wonderferret.'],
-      ['images/hd-storage-very-big.jpg', '<h2>a3</h2>How stuff really works. Photographs stored on a hard drive. RAID 1 - A mirrored array. By Mark Freeth or flicker user freetheimage'],
-     ['images/hd-internal-big.jpg', '<h2>a3</h2>The internals of a hard drive by flickr user dijutaltim.']
+    ["{{ url_for('static', filename='images/hd-crash-big.jpg') }}", '<h2>a2</h2>Aftermath of a crashed drive. Partially disassembled. By flicker user wonderferret.'],
+      ["{{ url_for('static', filename='images/hd-storage-very-big.jpg') }}", '<h2>a3</h2>How stuff really works. Photographs stored on a hard drive. RAID 1 - A mirrored array. By Mark Freeth or flicker user freetheimage'],
+     ["{{ url_for('static', filename='images/hd-internal-big.jpg') }}", '<h2>a3</h2>The internals of a hard drive by flickr user dijutaltim.']
       ],
       displaymode: {type:'auto', pause:3000, cycles:2, stoponclick:false, pauseonmouseover:true},
-      navbuttons: ['images/l-arrow.png', 'images/r-arrow.png'],
+      navbuttons: ["{{ url_for('static', filename='images/l-arrow.png') }}", "{{ url_for('static', filename='images/r-arrow.png') }}"],
       activeslideclass: 'selectedslide', // CSS class that gets added to currently shown DIV slide
       orientation: 'h', //Valid values: "h" or "v"
       persist: true, //remember last viewed slide and recall within same session?
       slideduration: 1000 //transition duration (milliseconds)
     })
     </script>
-    <!--end of Background Image Carousel-->
+    
 
     {{ js_resources|safe }}
 
@@ -58,35 +74,29 @@
 </head>
 
 <body>
-<div class="git">
-Link to github
+<div class="nav" align="center">
+<a href="{{ url_for('static', filename='index.html') }}">The Analysis</a> |
+ 
+<a href="{{ url_for('static', filename='about.html') }}">About</a> | 
+
+<a href="{{ url_for('static', filename='data_table.html') }}">The Data</a>
 </div>
 
 <div align="center">
 <div class="container">
-  <h1>HARD DISK FAILURE ANALYSIS</h1>
+
+
+<h1>HARD DISK FAILURE ANALYSIS</h1>
     <h2>by Alexander Bastidas Fry</h2>
-
-
-body text ARD DISK FAILURE ANALYSIS
-
-<h3> h3 by Alexander Bastidas FryARD DISK FAILURE ANALYSIS</h3>
-
-by Alexander Bastidas FryARD DISK FAILURE ANALYSIS
-
-by Alexander Bastidas FryARD DISK FAILURE ANALYSIS
-
-by Alexander Bastidas FryARD DISK FAILURE ANALYSIS
-
-by Alexander Bastidas Fry
-
+<!--<h3> h3 by Alexander Bastidas Fry</h3>
+<h3>ARD DISK FAILURE ANALYSIS</h3>
 https://stock-demo-abf.herokuapp.com/
 https://arcane-fortress-84192.herokuapp.com/main
 http://bokeh.pydata.org/en/latest/docs/gallery/slider.html
 https://www.usenix.org/legacy/event/fast07/tech/schroeder/schroeder_html/
 http://bioinformare.blogspot.com.au/2016/02/survival-analysis-of-hard-disk-drive.html
-
-<div id="zcarousel_div" class="bgcarousel"></div>
+-->
+<div id="zcarousel_div" class="bgcarousel"></div> 
 
 <div class="row" style="margin-top:3%;">
     <div class="input-group col-md-7">
@@ -136,7 +146,6 @@ http://bioinformare.blogspot.com.au/2016/02/survival-analysis-of-hard-disk-drive
 </div> 
 
 
-<div align="right"><a href="https://github.com/bastidas/flask-demo">ABF</a></div>
 </div>
 </div>
 </body>
