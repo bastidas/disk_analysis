@@ -7,3 +7,11 @@ An analysis of hard drive data from the Backblaze which includes 15 Gig of data 
 This project has potential, but in reality hard drives today are extremely reliable and most failures are stochastic. However, this may indicate that deeper more subtle statistical analysis with proper confidence interval handling is necessary. An advantage of the Backblaze data is that they use consumer grade hard drives (this is merely because they are cheaper) so combing their data with online retailers or other data sources could generate a novel hard drive metric. This is an interesting problem because hard drives are critical to computing and failures can be catastrophic and expensive. Data centers mitigate this risk through redundancy, but that is expensive and most consumes don’t have this ability. Summarily, low probability but high impact events like hard drive failure are interesting statistical events. 
 
 [In addition there is a Heroku application with an interactive plot.](https://arcane-fortress-84192.herokuapp.com)
+
+
+ To recreate this analysis:
+ 1) Get the data by running Download_Data.ipynb
+ 2) Make a summaries of the data by running HD_Model_Summary_Gen.ipynb
+ 3) Make surival tables of the data by running HD_Survival_Table_Gen
+ 4) 
+
