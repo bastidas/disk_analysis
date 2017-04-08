@@ -44,7 +44,13 @@
     </script> 
     -->
 
-
+    
+	<!--<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-x.y.z.min.css">
+    <link rel="stylesheet" href=" http://cdn.pydata.org/bokeh/release/bokeh-widgets-x.y.z.min.css">
+	<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-x.y.z.min.js"></script>
+    <script src=http://cdn.pydata.org/bokeh/release/bokeh-x.y.z.min.js"></script>-->
+<!--    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.9.0.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.9.0.min.js"></script>-->
 
     <script type="text/javascript">
     var zcarousel=new bgCarousel({
@@ -64,9 +70,24 @@
     </script>
     
 
+
+
+
+
     {{ js_resources|safe }}
 
     {{ css_resources|safe }}
+
+    {% if line_plot_script %}
+    {{ line_plot_script|safe }}
+    {% endif %}
+
+
+    {% if slider_plot_script %}
+    {{ slider_plot_script|safe }}
+    {% endif %}
+
+
 
     {% if plot_script %}
     {{ plot_script|safe }}
@@ -75,7 +96,7 @@
 
 <body>
 <div class="nav" align="center">
-<a href="{{ url_for('static', filename='index.html') }}">The Analysis</a> |
+<a href="http://hard-drives.herokuapp.com/">The Analysis</a> |
  
 <a href="{{ url_for('static', filename='about.html') }}">About</a> | 
 
@@ -88,6 +109,8 @@
 
 <h1>HARD DISK FAILURE ANALYSIS</h1>
     <h2>by Alexander Bastidas Fry</h2>
+
+
 <!--<h3> h3 by Alexander Bastidas Fry</h3>
 <h3>ARD DISK FAILURE ANALYSIS</h3>
 https://stock-demo-abf.herokuapp.com/
@@ -97,6 +120,38 @@ https://www.usenix.org/legacy/event/fast07/tech/schroeder/schroeder_html/
 http://bioinformare.blogspot.com.au/2016/02/survival-analysis-of-hard-disk-drive.html
 -->
 <div id="zcarousel_div" class="bgcarousel"></div> 
+
+
+
+<br/>
+<hr/>
+
+<h2> Drive Distribution by Year </h2>
+
+
+
+    <div class="input-group">
+    {% if line_plot_div %}
+        {{ line_plot_div|safe }}
+    {% endif %}
+    </div> 
+
+
+<br/>
+<hr/>
+
+<h2> Temporary Plot 2 </h2>
+    <div class="input-group">
+    {% if slider_plot_div %}
+        {{ slider_plot_div|safe }}
+    {% endif %}
+    </div> 
+
+
+<br/>
+<hr/>
+
+<h2> Temporary Plot 3 </h2>
 
 <div class="row" style="margin-top:3%;">
     <div class="input-group col-md-7">

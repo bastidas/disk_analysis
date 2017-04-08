@@ -88,7 +88,14 @@ p {
 	text-align: left;
 }
 
+hr { 
+	width:100%; 
+	height:1px;
+	background: #fff }
 
+fieldset {
+	border: none;
+	}
 
 
 h1 {  
@@ -136,9 +143,10 @@ h3 {
 width:100%;
 height:300px;
 }
+
 /* ######### Shared CSS for various parts of carousel (in the event of multiple carousels) ######### */
 div.bgcarousel{ /* shared CSS for main carousel container */
-background: black url(images/loading.gif) center center no-repeat; /* loading gif while caoursel is loading */
+background: black url("{{ url_for('static', filename='images/loading.gif') }}") center center no-repeat; /* loading gif while caoursel is loading */
 }
 
 div.bgcarousel img.navbutton{ /* CSS for the nav buttons */

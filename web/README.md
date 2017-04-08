@@ -1,6 +1,11 @@
-# ABF data incubator
+# Flask on Heroku
+### abf repo
 
-Here is the [finished website served from Heroku.](https://hard-drive.herokuapp.com/)
+This demo uses Flask, JSON, Pandas, Requests, Heroku, and Bokeh to make a simple stock ticker visualization.
 
- * Uses the [conda buildpack](https://github.com/kennethreitz/conda-buildpack). In particular, the command 'heroku config:add BUILDPACK_URL=https://github.com/kennethreitz/conda-buildpack.git' or is this the way: 'heroku buildpacks:add https://github.com/kennethreitz/conda-buildpack.git'
+Here is the [finished demo served from Heroku.](https://stock-demo-abf.herokuapp.com/)
+
+- Uses the [conda buildpack](https://github.com/kennethreitz/conda-buildpack).
+- Uses data from [quandl](https://www.quandl.com)
+
 

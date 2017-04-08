@@ -1,3 +1,4 @@
+flex
 scipy
 numpy
 pandas
