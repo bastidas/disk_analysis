@@ -1,0 +1,48 @@
+TEST		=	False
+DATA_DIR	=	data/
+DATA_FOLDERS	=	['2014', '2015', 'data_Q1_2016', 'data_Q2_2016', 'data_Q3_2016', 'data_Q4_2016']
+FEATURE_COLS	=	['date', 'capacity_bytes', 'smart_9_raw', 'model', 'failure', 'serial_number']
+THE_TIME	=	2017-04-09-03-16
+OUTPUT_DIR	=	summary_data
+ * * *
+Loading and working with: data/2014/
+Current time: 2017-04-09-03-16
+There are 47793 unique drives. 
+There are 81 unique models. 
+There are 364 unique dates. 
+There are 2206 failures.
+ * * *
+Loading and working with: data/2015/
+Current time: 2017-04-09-03-28
+There are 62898 unique drives. 
+There are 78 unique models. 
+There are 364 unique dates. 
+There are 1429 failures.
+ * * *
+Loading and working with: data/data_Q1_2016/
+Current time: 2017-04-09-03-45
+There are 64074 unique drives. 
+There are 69 unique models. 
+There are 91 unique dates. 
+There are 337 failures.
+ * * *
+Loading and working with: data/data_Q2_2016/
+Current time: 2017-04-09-03-50
+There are 71910 unique drives. 
+There are 67 unique models. 
+There are 91 unique dates. 
+There are 385 failures.
+ * * *
+Loading and working with: data/data_Q3_2016/
+Current time: 2017-04-09-03-55
+There are 74574 unique drives. 
+There are 63 unique models. 
+There are 92 unique dates. 
+There are 359 failures.
+ * * *
+Loading and working with: data/data_Q4_2016/
+Current time: 2017-04-09-04-01
+There are 74453 unique drives. 
+There are 59 unique models. 
+There are 92 unique dates. 
+There are 350 failures.
