@@ -3,3 +3,4 @@ scipy
 numpy
 pandas
 bokeh
+nodejs

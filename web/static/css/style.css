@@ -22,6 +22,17 @@ body {
 }
 
 
+.child-div {
+    position:absolute;
+    left:0;
+    right:0;
+    width:100%;
+    height:450px;
+    padding-bottom:450px;
+}
+
+
+
 .nav{
   top:0%;
   background: #000000 !important;
@@ -46,6 +57,18 @@ body {
   	line-height: 140%;
   	text-shadow: 3px 3px 7px #919191;
 
+}
+
+
+.full-width-plot {
+  background: #000000 !important;
+  /*color: #E2E2E2;  */
+  border: 1px none #919191 !important;
+  width:955px;   /* 840 */
+  padding-left:0px;
+  padding-right:0px;
+  margin-top:0px;
+  padding-top:0px;
 }
 
 a {
@@ -187,4 +210,33 @@ margin:0;
 div.bgcarousel div.slide div.desc a{
 color:#708090;
 text-decoration:none;
+}
+
+
+.bk-root .bk-layout-fixed .cs0{
+color: #FDFEFE !important;
+background-color: #21618C !important;
+border-color: #21617C !important;
+}
+
+.bk-root .bk-bs-btn-success{
+color: #FDFEFE;
+background: none !important;
+border: none !important;
+/*visibility: hidden;*/
+}
+.bk-root .bk-bs-btn-success:focus {
+color: #FDFEFE !important;
+background-color: #21618C !important;;
+border-color: #21618C !important;;
+}
+.bk-root .bk-bs-btn-success:active {
+color: #FDFEFE !important;
+background-color: #21618C;
+border-color: #21618C;
+}
+.bk-root .bk-bs-btn-success:hover {
+color: #FDFEFE;
+background-color: #5DADE2 !important;
+border-color: #5DADE2 !important;
 }

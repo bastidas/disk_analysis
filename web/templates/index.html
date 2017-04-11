@@ -9,40 +9,20 @@
     <meta http-equiv='content-type' content='text/html; charset=utf-8' />
 	<title>Hard Drive Analysis </title>
 
-
     <!--<link rel="stylesheet" type="text/css" href="style.css") }}">-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
 
-
-    <!--Background Image Carousel-->
-    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/jquery.velocity.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.touchSwipe.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bgcarousel.js') }}" type="text/javascript">
         /***********************************************
     * Background Image Carousel- (c) Dynamic Drive (www.dynamicdrive.com)
-    * Please keep this notice intact
-    * Visit http://www.dynamicdrive.com/ for this script and 100s more.
     ***********************************************/
     </script> 
-
-
-    <!--
-    <script src="js/jquery.velocity.min.js"></script>
-    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
-    <script src="js/bgcarousel.js" type="text/javascript">
-    
-    /***********************************************
-    * Background Image Carousel- (c) Dynamic Drive (www.dynamicdrive.com)
-    * Please keep this notice intact
-    * Visit http://www.dynamicdrive.com/ for this script and 100s more.
-    ***********************************************/
-    </script> 
-    -->
 
     
 	<!--<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-x.y.z.min.css">
@@ -68,30 +48,34 @@
       slideduration: 1000 //transition duration (milliseconds)
     })
     </script>
-    
-
-
-
-
 
     {{ js_resources|safe }}
 
     {{ css_resources|safe }}
 
-    {% if line_plot_script %}
-    {{ line_plot_script|safe }}
+    {% if pie_plot_script %}
+    {{ pie_plot_script|safe }}
     {% endif %}
 
+    {% if surv_plot_script %}
+    {{ surv_plot_script|safe }}
+    {% endif %}
 
     {% if slider_plot_script %}
     {{ slider_plot_script|safe }}
     {% endif %}
 
-
-
     {% if plot_script %}
     {{ plot_script|safe }}
     {% endif %}
+
+    {{ bokeh_css }}
+    {{ bokeh_js }}
+
+</style>
+
+
+
 </head>
 
 <body>
@@ -119,9 +103,8 @@ http://bokeh.pydata.org/en/latest/docs/gallery/slider.html
 https://www.usenix.org/legacy/event/fast07/tech/schroeder/schroeder_html/
 http://bioinformare.blogspot.com.au/2016/02/survival-analysis-of-hard-disk-drive.html
 -->
+
 <div id="zcarousel_div" class="bgcarousel"></div> 
-
-
 
 <br/>
 <hr/>
@@ -130,9 +113,9 @@ http://bioinformare.blogspot.com.au/2016/02/survival-analysis-of-hard-disk-drive
 
 
 
-    <div class="input-group">
-    {% if line_plot_div %}
-        {{ line_plot_div|safe }}
+    <div class="full-width-plot">
+    {% if pie_plot_div %}
+        {{ pie_plot_div|safe }}
     {% endif %}
     </div> 
 
@@ -140,68 +123,50 @@ http://bioinformare.blogspot.com.au/2016/02/survival-analysis-of-hard-disk-drive
 <br/>
 <hr/>
 
-<h2> Temporary Plot 2 </h2>
-    <div class="input-group">
+
+<h2> Survival Analysis </h2>
+
+
+    <div class="full-width-plot">
+    {% if surv_plot_div %}
+        {{ surv_plot_div|safe }}
+    {% endif %}
+    </div> 
+
+
+<br/>
+<hr/>
+
+
+<h2> Feature Extraction </h2>
+
+
+<div class="child-div">
+<img src="{{ url_for('static', filename='images/mST4000DM000_data-S3001HBH.png') }}">
+</div> 
+
+<br/>
+
+
+
+<div class="full-width-plot" style="padding-top:350px;">
+<br/>
+<hr/>
+<h2> Temporary Plot </h2>
+    <div class="full-width-plot">
     {% if slider_plot_div %}
         {{ slider_plot_div|safe }}
     {% endif %}
-    </div> 
+</div>
+
 
 
 <br/>
 <hr/>
 
-<h2> Temporary Plot 3 </h2>
-
-<div class="row" style="margin-top:3%;">
-    <div class="input-group col-md-7">
-        <form method="POST" action="/">
-
-        <div class="input-group add-on">
-            <input name="symbol" type="text" placeholder="{{ place_holder }}" class="form-control" />
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-
-        <br/>
-        <fieldset>
-        <legend></legend>
-        <input type="checkbox" name="open" id="open" value="1" {{ "checked" if open|safe == "1" }}/>
-        <label for="open">Opening price</label><br />
-        <input type="checkbox" name="close" id="close" value="1"  {{ "checked" if close|safe == "1" }}/>
-        <label for="close">Closing price</label><br />
-        <input type="checkbox" name="adj_open" id="adjusted open" value="1" {{ "checked" if adj_open|safe == "1" }}/>
-        <label for="adjusted open">Adjusted opening</label><br />
-        <input type="checkbox" name="adj_close" id="adjusted close" value="1" {{ "checked" if adj_close|safe == "1" }}/>
-        <label for="adjusted close">Adjusted closing price</label><br />
-        </fieldset>
-        
-        <fieldset>
-            Time Range:
-        <select name="Measure">
-            <option {{ "selected" if measure|safe == "1month" }} value="1month">1 month</option>
-            <option {{ "selected" if measure|safe == "6months" }} value="6months">6 months</option>
-            <option {{ "selected" if measure|safe == "1year" }} value="1year">1 year</option>
-            <option {{ "selected" if measure|safe == "5years" }} value="5years">5 years</option>
-            <option {{ "selected" if measure|safe == "max" }} value="max">max</option>
-        </select>
-        </fieldset>
-
-        </form>
-     </div>
+</div>
+<a href="https://github.com/bastidas">See the code repository on Github</a>
 </div> 
 
-<div class="row" style="margin-top:3%;">
-    <div class="input-group">
-    {% if plot_div %}
-        {{ plot_div|safe }}
-    {% endif %}
-    </div> 
-</div> 
-
-
-</div>
-</div>
 </body>
 </html>
