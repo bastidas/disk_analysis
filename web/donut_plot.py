@@ -3,46 +3,42 @@ from bokeh.models.glyphs import Wedge, AnnularWedge, ImageURL, Text
 from bokeh.models import ColumnDataSource, Plot, Range1d
 import numpy as np
 from bokeh.palettes import brewer
-#import load_data
 from bokeh.models.widgets import Panel, Tabs
-#from bokeh.io import show
-from bokeh.layouts import layout
-from bokeh.layouts import row
 
+from bokeh.layouts import layout, row
+from bokeh.models import  LabelSet
+from bokeh.plotting import figure
+from bokeh.models import HoverTool
 
-def generate_single_pie(df, time_str, color_dict):
-    ncolor = 9
-    nextra = 20
-    blues = brewer["Blues"][ncolor][0:ncolor-1]
-    blues = blues + [blues[ncolor-2] for i in range(nextra)]
-    greens = brewer["Greens"][ncolor][0:ncolor-1]
-    greens = greens + [greens[ncolor-2] for i in range(nextra)]
-    reds = brewer["Reds"][ncolor][0:ncolor-1]
-    reds = reds + [reds[ncolor-2] for i in range(nextra)]
-    greys = brewer["Greys"][ncolor][0:ncolor-2][::-1]
-    greys = greys + [greys[ncolor-3] for i in range(nextra)]
-    purples = brewer["Purples"][ncolor][0:ncolor-1]
-    purples = purples + [purples[ncolor-2] for i in range(nextra)]
-    colors = {"Hitachi": reds, "Seagate": blues, "HGST": greens, "Samsung": greys, "Western Digital" : purples, "Toshiba": greys, "Other": greys}
-    
+def generate_single_pie(df, time_str, color_dict, colors):
+
     xdr = Range1d(start=-2, end=2)
     ydr = Range1d(start=-2, end=2)
+    xoffset = .45
+    title = "Percent of Drive Models in use" + time_str
+    #plot = Plot(title=title, x_range=xdr, y_range=ydr, plot_width=700, plot_height=600,tools=['hover'])
+    
+    plot = figure(title=title, x_range=xdr, y_range=ydr, plot_width=700, plot_height=600, tools=['hover,wheel_zoom,save'])
+    hover = plot.select(dict(type=HoverTool))
+    # = plot.select(dict(type=HoverTool))
+    hover.tooltips = [
+        ("Model ", "@model"),
+        ("Failure Rate ", "@failure_rate")]
+    hover.mode = 'mouse'
 
-    title = "Distribution of Drives " + time_str
-    plot = Plot(title=title, x_range=xdr, y_range=ydr, plot_width=600, plot_height=600)
-
-
+    plot.xaxis.visible = False
+    plot.yaxis.visible = False
+    plot.grid.grid_line_alpha = 0
+    #plot.outline = None
     plot.outline_line_width = 0
-    plot.outline_line_alpha = 0.0
-    plot.outline_line_color = "black"
-    plot.border_fill_color = "black"
-    plot.background_fill_color = "black"
-    plot.title.text_color = 'white'
+    plot.ygrid.grid_line_color = None
+    plot.toolbar.logo = None
+    plot.outline_line_width = 0
+    plot.outline_line_color = "white"
     aggregated = df.groupby("manufacturer").agg(sum)
     selected = aggregated[aggregated.percent_total >= 2].copy()
     selected.loc["Other"] = aggregated[aggregated.percent_total < 2].sum()
     browsers = selected.index.tolist()
-
     radians = lambda x: 2*pi*(x/100)
     angles = selected.percent_total.map(radians).cumsum()
     end_angles = angles.tolist()
@@ -51,11 +47,13 @@ def generate_single_pie(df, time_str, color_dict):
     browsers_source = ColumnDataSource(dict(
         start  = start_angles,
         end    = end_angles,
-        colors = [colors[browser][0] for browser in browsers ],
+        colors = [colors[browser] for browser in browsers],
+        model = browsers,
+        failure_rate = [f for f in selected["failure_rate"]]
     ))
 
-    glyph = Wedge(x=0, y=0, radius=1, line_color="black",
-        line_width=1, start_angle="start", end_angle="end", fill_color="colors")
+    glyph = Wedge(x=xoffset, y=0, radius=.8, line_color="white",
+        line_width=2, start_angle="start", end_angle="end", fill_color="colors")
     plot.add_glyph(browsers_source, glyph)
 
     def polar_to_cartesian(r, start_angles, end_angles):
@@ -66,76 +64,56 @@ def generate_single_pie(df, time_str, color_dict):
             points.append(cartesian(r, (end + start)/2))
 
         return zip(*points)
-
-    first = True
-
-    show_wedge_percent = .01
-    show_label_percent = 1.5
+    show_wedge_percent =  1.0
+    show_label_percent = 1.0
+    n = 0
     for manufac, start_angle, end_angle in zip(browsers, start_angles, end_angles):
-        versions = df[(df.manufacturer == manufac) & (df.percent_total >= show_wedge_percent)] #if it has gt than 
-        angles = versions.percent_total.map(radians).cumsum() + start_angle
+        manufac_models = df[(df.manufacturer == manufac) & (df.percent_total > show_wedge_percent)] #if it has gt than 
+        other_manufac_models = df[(df.manufacturer == manufac) & (df.percent_total <= show_wedge_percent)]
+        other_manufac_models.model = "Other"
+        manufac_models = manufac_models.append(other_manufac_models)
+        manufac_models = manufac_models.reset_index().groupby("model").sum()
+        manufac_models["model"] = manufac_models.index
+        manufac_models = manufac_models[manufac_models.percent_total > show_wedge_percent] #if it has gt than 
+        angles = manufac_models.percent_total.map(radians).cumsum() + start_angle
         end = angles.tolist() + [end_angle]
         start = [start_angle] + end[:-1]
         base_color = colors[manufac]
-
-        fill = [color_dict[model_key] if model_key in color_dict else 'grey' for model_key in versions.model]
-
-        text = [ number if share >= show_label_percent else "" for number, share in zip(versions.model, versions.percent_total) ]
-        x, y = polar_to_cartesian(1.25, start, end)
-
-        source = ColumnDataSource(dict(start=start, end=end, fill=fill))
-        glyph = AnnularWedge(x=0, y=0,
-            inner_radius=1, outer_radius=1.5, start_angle="start", end_angle="end",
-            line_color="black", line_width=0, fill_color="fill")
+        fill = [color_dict[model_key] if model_key in color_dict else 'grey' for model_key in manufac_models.model]
+        text = [ modnumber if share >= show_label_percent else " " for modnumber, share in zip(manufac_models.model, manufac_models.percent_total) ]
+        x = np.zeros(len(manufac_models))-1.93
+        y = [1.7 -.23*h-.23*n for h in range(len(manufac_models))]
+        n += len(manufac_models)
+        source = ColumnDataSource(dict(start=start, end=end, fill=fill,model=text, failure_rate= manufac_models.failure_rate))
+        glyph = AnnularWedge(x= xoffset, y=0,
+            inner_radius=.8, outer_radius=1.4, start_angle="start", end_angle="end",
+            line_color="white", line_width=2, fill_color="fill")
         plot.add_glyph(source, glyph)
 
 
-        text_angle = [(start[i]+end[i])/2 for i in range(len(start))]
-        text_angle = [angle + pi if pi/2 < angle < 3*pi/2 else angle for angle in text_angle]
 
-        text_source = ColumnDataSource(dict(text=text, x=x, y=y, angle=text_angle))
-        glyph = Text(x="x", y="y", text="text", angle="angle",
-            text_align="center", text_baseline="middle", text_color = "white")
-        plot.add_glyph(text_source, glyph)
-
-
+        text_source = ColumnDataSource(dict(text=text, x=x, y=y, fill=fill))
+        labels = LabelSet(x='x', y='y', text='text', text_color= "white", level='glyph', source=text_source, \
+            render_mode='canvas', background_fill_color="fill", border_line_color="fill", border_line_width=8)
+        plot.add_layout(labels)
     x, y = polar_to_cartesian(1.7, start_angles, end_angles)
 
-    text = [ "%.02f%%" % value for value in selected.percent_total]
-    x, y = polar_to_cartesian(0.7, start_angles, end_angles)
 
+
+    selected = selected[selected['percent_total'] > 3.5]
+    text = [ "%.02f%%" % value for value in selected.percent_total]
+    x, y = polar_to_cartesian(0.6, start_angles, end_angles)
+    x =  [i + xoffset-.02 for i in x]
     text_source = ColumnDataSource(dict(text=text, x=x, y=y))
     glyph = Text(x="x", y="y", text="text", text_align="center", text_baseline="middle", text_color = "white")
     plot.add_glyph(text_source, glyph)
     return plot
 
-def generate_pie_plots(df, time_strings, seagate_color_dict, hitachi_color_dict, hgst_color_dict, western_color_dict):
-    ncolor = 9
-    nextra = 20
+def generate_pie_plots(df, time_strings, color_dict, colors):
 
-
-    blues = brewer["Blues"][ncolor][0:ncolor-1]
-    blues = blues + [blues[ncolor-2] for i in range(nextra)]
-    greens = brewer["Greens"][ncolor][0:ncolor-1]
-    greens = greens + [greens[ncolor-2] for i in range(nextra)]
-    reds = brewer["Reds"][ncolor][0:ncolor-1]
-    reds = reds + [reds[ncolor-2] for i in range(nextra)]
-    greys = brewer["Greys"][ncolor][0:ncolor-2][::-1]
-    greys = greys + [greys[ncolor-3] for i in range(nextra)]
-    purples = brewer["Purples"][ncolor][0:ncolor-1]
-    purples = purples + [purples[ncolor-2] for i in range(nextra)]
-    seagate_colors = blues
-    hgst_colors = greens
-    hitachi_colors = reds
-    western_colors = purples
-    colors = {"Hitachi": reds, "Seagate": blues, "HGST": greens, "Samsung": greys, "Western Digital" : purples, "Toshiba": greys, "Other": greys}
-    color_dict = dict(seagate_color_dict, **hitachi_color_dict)
-    color_dict = dict(color_dict, **hgst_color_dict)
-    color_dict = dict(color_dict, **western_color_dict)
-
-    plot1 = generate_single_pie(df[0], time_strings[0], color_dict)
-    plot2 = generate_single_pie(df[4], time_strings[4], color_dict)
-    plot3 = generate_single_pie(df[8], time_strings[8], color_dict)
+    plot1 = generate_single_pie(df[0], time_strings[0], color_dict, colors)
+    plot2 = generate_single_pie(df[4], time_strings[4], color_dict, colors)
+    plot3 = generate_single_pie(df[8], time_strings[8], color_dict, colors)
 
     tab1 = Panel(child=plot1, title=time_strings[0])
     tab2 = Panel(child=plot2, title=time_strings[4])
@@ -146,8 +124,10 @@ def generate_pie_plots(df, time_strings, seagate_color_dict, hitachi_color_dict,
     return layout
 
 
-
-#adf, time_strings, seagate_color_dict, hitachi_color_dict, hgst_color_dict, western_color_dict = load_data.get_summary_data()
-#print(len(adf))
-#dplt = generate_pie_plots(adf, time_strings, seagate_color_dict, hitachi_color_dict, hgst_color_dict, western_color_dict)
-#show(dplt)
+stand_alone_test = False
+if stand_alone_test:
+    import load_data
+    from bokeh.io import show
+    adf, time_strings, color_dict, colors = load_data.get_summary_data()
+    dplt = generate_pie_plots(adf, time_strings, color_dict, colors)
+    show(dplt)

@@ -4,17 +4,15 @@ import flask
 import requests
 from bokeh.plotting import figure
 from bokeh.embed import components
-#from bokeh.models import NumeralTickFormatter
 import numpy as np
-#import datetime
 from bokeh.resources import INLINE
 from bokeh.models import HoverTool
-#from bokeh.charts import Donut
 import km_plot
-#import pie_plot
 import load_data
 import donut_plot
-
+import bar_plot
+import table_plot
+import omni_plot
 
 
 app = Flask(__name__)
@@ -25,15 +23,32 @@ def getitem(obj, item, default):
     else:
         return obj[item]
 
-adf, time_strings, seagate_color_dict, hitachi_color_dict, hgst_color_dict, western_color_dict = load_data.get_summary_data()
+adf, time_strings, color_dict, colors = load_data.get_summary_data()
 # time_indexer = dict(zip(time_strings, range(len(time_strings))))
-pie_plot = donut_plot.generate_pie_plots(adf, time_strings, seagate_color_dict, hitachi_color_dict, hgst_color_dict, western_color_dict)
+
+pie_plot = donut_plot.generate_pie_plots(adf, time_strings, color_dict, colors)
 pie_script, pie_div = components(pie_plot)
 
+table_plot = table_plot.generate_table_plots(adf, time_strings, color_dict, colors)
+table_script, table_div = components(table_plot)
 
+bar_plot = bar_plot.generate_bar_plots(adf, time_strings, color_dict, colors)
+bar_script, bar_div = components(bar_plot)
+
+c1, sdf, hcols = omni_plot.gather_stat_data(adf, color_dict)
+
+om_plot = omni_plot.generate_summary_plot(c1, hcols)
+omni_script, omni_div = components(om_plot)
+
+box_plot = omni_plot.generate_box_plot(sdf, colors)
+box_script, box_div = components(box_plot)
+
+choose_plot = omni_plot.generate_performance_plot(c1, hcols)
+choose_script, choose_div = components(choose_plot)
 
 kms, models = km_plot.load_survival_data()
-surv_plot = km_plot.generate_km_plot(kms, models)
+surv_plot = km_plot.generate_km_plot(kms, models, color_dict)
+
 js = INLINE.render_js()
 css = INLINE.render_css()
 surv_script, surv_div = components(surv_plot)
@@ -65,37 +80,29 @@ def generate_slider_plot():
     slider = Slider(start=0.1, end=4, value=1, step=.1, title="power")
     slider.js_on_change('value', callback)
 
-
     layout = column(slider, plot)
-    #js = INLINE.render_js()
-    #css = INLINE.render_css()
-    #script, div = components(layout)
     return layout
 
 slider_script, slider_div = components(generate_slider_plot())
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    #measure = getitem(request.form, 'Measure', '6months')
-    #plt_open = getitem(request.form, 'open', "0")
-    #plt_close = getitem(request.form, 'close', "0")
-    #plt_adj_open = getitem(request.form, 'adj_open', "0")
-    #plt_adj_close = getitem(request.form, 'adj_close', "0")
     js_resources = INLINE.render_js()
     css_resources = INLINE.render_css()
-
-    #print("request.from", request.form)
-    #if request.method == 'POST':
     try: 
             html = flask.render_template('index.html', js_resources = js_resources, css_resources = css_resources,
+                choose_plot_script = choose_script, choose_plot_div = choose_div,
+                box_plot_script = box_script, box_plot_div = box_div,
+                omni_plot_script = omni_script, omni_plot_div = omni_div,
                 surv_plot_script = surv_script,  surv_plot_div = surv_div,
                 pie_plot_script = pie_script, pie_plot_div = pie_div,
+                table_plot_script = table_script, table_plot_div = table_div,
+                bar_plot_script = bar_script, bar_plot_div = bar_div,
                 slider_plot_script = slider_script, slider_plot_div = slider_div)
             return html
     except:
-            html = flask.render_template('index.html', place_holder="Invalid symbol")
+            html = flask.render_template('index.html', place_holder="Error in flask, python, bokeh, java pipeline")
             return html
-
 
 if __name__ == '__main__':
     app.run(port=33507)
