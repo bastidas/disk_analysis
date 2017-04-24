@@ -5,15 +5,14 @@ body {
 	font-variant: normal;
 	padding-top: 0px;
 	padding-bottom: 0px;
-	color:#C1C1C1;
-	background-color: #000000 !important;
+	color:#000000;
+	background-color: #ffffff !important;
 }
 
-
-.container {
-  background: #000000 !important;
+.old_container {
+  background: #FFFFFF!important;
   /*color: #E2E2E2;  */
-  border: 2px none #FFFFFF;
+  border: 2px none #000000;
   width:960px;   /* 840 */
   padding-left:15px;
   padding-right:15px;
@@ -21,41 +20,93 @@ body {
   padding-top:35px;
 }
 
+.container {
+  background: #FFFFFF !important;
+  /*color: #E2E2E2;  */
+  border: 2px none #000000;
+  max-width: 1366px;
+  min-width: 600px; 
+  width: 90%;
+  padding-left:15px;
+  padding-right:15px;
+  margin-top:0px;
+  padding-top:20px;
+}
+
+
+.child-div {
+    position:absolute;
+    left:0;
+    right:0;
+    width:100%;
+    height:450px;
+    padding-bottom:450px;
+}
+
+
 
 .nav{
   top:0%;
-  background: #000000 !important;
-  color: #FFFFFF;  
+  right:0%;
+  background: #FFFFFF !important;
+  color: #000000;  
   border: 2px none #FFFFFF;
-  width:100%;   /* 840 */
-  font-size:1.0em;
+  width:480px;   /* 840 width:40%; 840 */
+  font-size:1.0em !important;
   position: fixed;
-  font-color:#FFFFFF;
   margin-top:0px;
-  padding-top:4px;
-  padding-bottom:4px;
+  padding-top:2px;
+  padding-left:10px;
+  padding-bottom:2px;
   text-align:center;
-  	font-family: 'VT323', monospace;
-	color: #FFFFFF;   
-	font-size: 1.8em;  
-	line-height: 1.2em;  
-	letter-spacing: 3px;  
-	font-weight: normal;
-	/* shadow */
-	text-align: left;
-  	line-height: 140%;
-  	text-shadow: 3px 3px 7px #919191;
+    font-family: 'VT323', monospace;
+  color: #000000;   
+  font-size: 1.7em;  
+  line-height: 1.2em;  
+  letter-spacing: 3px;  
+  font-weight: normal;
+  /* shadow */
+  text-align: left;
+    line-height: 120%;
+    text-shadow: 3px 3px 7px #919191;
+  z-index : 6666;
+}
 
+.nav a{
+color: #000000;
+}
+
+.left-full-width-plot {
+  /*background: #000000 !important;*/
+  /*color: #E2E2E2;  */
+  border: 5px none #000000 !important;
+  width:90%;   /* 840 */
+  margin-left:-40%;
+  padding-right:0px;
+  margin-top:0px;
+  padding-top:0px;
+}
+
+
+.full-width-plot {
+  /*background: #000000 !important;*/
+  /*color: #E2E2E2;  */
+  border: 1px none #000000 !important;
+  /*width:955px;   /* 840 */
+  padding-left:0px;
+  padding-right:0px;
+  margin-top:0px;
+  padding-top:0px;
 }
 
 a {
 	border: none;
-	color: #778899; /* #0051BB; */
-	text-decoration: none;
+	color: #0051BB; 
+  text-decoration: none;
 }
 
 a:hover {
-	color: #FFFFFF; /*dark blue */
+  color: #4F4FAF; 
 	text-decoration: none;
 }
 
@@ -82,7 +133,6 @@ code {
 
 
 p {
-    font-size: 1.2;
 	line-height: 30px;
 	margin: 0.2em auto;
 	text-align: left;
@@ -99,22 +149,22 @@ fieldset {
 
 
 h1 {  
-    font-family:'Share Tech', sans-serif;
-	color: #FFFFFF;  
-	font-size: 5.0em;
-	letter-spacing: 4px;  
-	line-height: 1.2em;  
-	font-weight: normal;  
-	/* shadow */
-	text-align: left;
-  	font-size: 50px;
-  	line-height: 140%;
-  	text-shadow: 3px 3px 7px #919191;
+  font-family: 'VT323', sans-serif;
+  color: #262626;  
+  font-size: 3.0em !important;
+  letter-spacing: 4px;  
+  line-height: 1.2em;  
+  font-weight: normal;  
+  /* shadow */
+  text-align: left;
+  font-size: 50px;
+  line-height: 70%;
+  text-shadow: 3px 3px 7px #919191;
  } 
 
 h2 {
-	font-family: 'Share Tech', sans-serif;
-	color: #FFFFFF;   
+	font-family: 'VT323', sans-serif;
+	color: #262626;   
 	font-size: 1.8em;  
 	line-height: 1.2em;  
 	letter-spacing: 3px;  
@@ -127,7 +177,7 @@ h2 {
 
 h3 {
 	font-family: 'VT323', monospace;
-	color: #FFFFFF;   
+	color: #262626;   
 	font-size: 1.8em;  
 	line-height: 1.2em;  
 	letter-spacing: 3px;  
@@ -146,7 +196,7 @@ height:300px;
 
 /* ######### Shared CSS for various parts of carousel (in the event of multiple carousels) ######### */
 div.bgcarousel{ /* shared CSS for main carousel container */
-background: black url("{{ url_for('static', filename='images/loading.gif') }}") center center no-repeat; /* loading gif while caoursel is loading */
+background: black url("images/loading.gif") center center no-repeat; /* loading gif while caoursel is loading */
 }
 
 div.bgcarousel img.navbutton{ /* CSS for the nav buttons */
@@ -166,10 +216,12 @@ div.bgcarousel div.selectedslide{ /* CSS for currently selected slide */
 div.bgcarousel div.slide div.desc{ /* DIV that contains the textual description inside .slide */
 position: absolute;
 color: white;
-left: 40px;
-top: 40px;
-width:210px;
+text-align: left;
+left: 20px;
+top: 20px;
+width:310px;
 background-color:rgba(0, 0, 0, 0.5);
+margin-left:40px;
 padding: 10px;
 /*font: 16px 'IM Fell DW Pica', "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
 /*text-shadow: 0 -1px 1px #8a8a8a; */ /* CSS3 text shadow */ 
@@ -181,10 +233,44 @@ div.bgcarousel div.selectedslide div.desc{ /* CSS for currently selected slide's
 
 div.bgcarousel div.slide div.desc h2{
 font-size:20pt;
+color: #FFFFFF;
 margin:0;
 }
 
 div.bgcarousel div.slide div.desc a{
+color:#FFFFFF;
+text-decoration:none;
+}
+
+div.bgcarousel div.slide div.desc a:hover{
 color:#708090;
 text-decoration:none;
+}
+
+.bk-root .bk-bs-btn-success{ 
+opacity: 1.0;
+width: 0px;
+color: #FFFFFF !important; 
+border: none !important;
+background: none!important;
+}
+
+.bk-root .bk-bs-btn-success:active {
+opacity: .5 !important;
+background: red !important;  
+}
+
+.bk-root .bk-bs-btn-success:focus {
+opacity: .2;
+background: #000000 !important;  
+}
+
+.bk-root .bk-bs-btn-success:hover {
+opacity: .2;
+background: #000000 !important;  
+}
+
+
+.bk-root .bk-data-table {
+font-size:16px !important;
 }
