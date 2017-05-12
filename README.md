@@ -1,17 +1,26 @@
 
-An analysis of hard drive data from the Backblaze which includes 15 Gig of data going back to 2013 including 90 columns of raw and normalized SMART hard drive statistics which may provide some leveraging to predicting hard drive failure. In particular the analysis would:
-* apply survival analysis to these hard drives in order to predict failure rates with uncertainty estimates
-* apply machine learning analysis (random forest, tensorflow/skflow) in order to predict pending hard drive failures
-* apply correlation studies to Backblaze data combined with other data sources (user reviews, historical price data, serial number, hd manufacture date, manufacture location, crystal disk info, Acronis  drive monitor, WMI  etc.)
-* generate a web tool that will tell users the probability their hard drive will fail
-This project has potential, but in reality hard drives today are extremely reliable and most failures are stochastic. However, this may indicate that deeper more subtle statistical analysis with proper confidence interval handling is necessary. An advantage of the Backblaze data is that they use consumer grade hard drives (this is merely because they are cheaper) so combing their data with online retailers or other data sources could generate a novel hard drive metric. This is an interesting problem because hard drives are critical to computing and failures can be catastrophic and expensive. Data centers mitigate this risk through redundancy, but that is expensive and most consumes don’t have this ability. Summarily, low probability but high impact events like hard drive failure are interesting statistical events. 
-
-[In addition there is a Heroku application with an interactive plot.](https://hard-drives.herokuapp.com)
+An analysis of hard drive data from the Backblaze which includes 15 Gig of data going back to 2013 including 90 columns of raw and normalized SMART hard drive statistics which offer the ability to predict hard drive failure. In particular this analysis analysis:
+ * Cleans the data and summarizes by year.
+ * Makes naive failure rate predictions.
+ * Makes a survival tables of each individual hard drive model in the data set.
+ * Does survival analysis in order to predict failure rates with uncertainty estimates, robust prediction of failure rate.
+ * Applys machine learning (random forest, tensorflow) to predict pending hard drive failures
 
 
- To recreate this analysis:
+[The main result of this project is this web page that presents the results](https://hard-drives.herokuapp.com)
+
+
+ The steps to recreate this analysis:
  1) Get the data by running Download_Data.ipynb
  2) Make a summaries of the data by running HD_Model_Summary_Gen.ipynb
  3) Make surival tables of the data by running HD_Survival_Table_Gen
- 4) 
-
+ 4)
+     * HD_Survival_Analysis.ipynb can now be run to do surival rates with Kaplan-Mier and hazard rates with Nelson-Aalen
+ 5) Generate the daily stats for a single model (by deault the most common drive in the data set) by running HD_Model_Data_Gen.ipynb
+ 6) Extract the relevant features and munge data further with HD_Extract_Features.ipynb
+     * HD_Learned_Importance.ipynb can now be run
+     * HD_Predict_Failure can now be run
+     * HD_TF_Model.py can now be run. Note that this is a python program written in python 3.5 and uses the Tensorflow library. 
+     
+Many of the plots seen on the webpage are created in some form in the notebooks above, but many more plotting programs are contained in the web directory.
+     
