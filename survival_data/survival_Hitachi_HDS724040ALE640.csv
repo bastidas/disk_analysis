@@ -1,0 +1,4 @@
+serial_number,n_obs,failure,runtime_min,runtime_max,uptime
+PK1311PAG4LWMS,724,0.0,9.0,17386.0,17377.0
+PK1311PAG5350S,702,0.0,7.0,16879.0,16872.0
+PK1311PAG5370S,785,0.0,10.0,18863.0,18853.0
