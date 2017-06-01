@@ -1,11 +1,3 @@
-# Flask on Heroku
-### abf repo
+Here is the [finished webiste served from Heroku.](https://hard-drives.herokuapp.com)
 
-This demo uses Flask, JSON, Pandas, Requests, Heroku, and Bokeh to make a simple stock ticker visualization.
-
-Here is the [finished demo served from Heroku.](https://stock-demo-abf.herokuapp.com/)
-
-- Uses the [conda buildpack](https://github.com/kennethreitz/conda-buildpack).
-- Uses data from [quandl](https://www.quandl.com)
-
-
+In the code here every single plot has hover information and additional effects, however, some of the features and interactivity have been turned off on the final website due to perfromance issues. The python bokeh backend's javascript and coffeescript is served so slowly as to cause timeouts otherwise. 
